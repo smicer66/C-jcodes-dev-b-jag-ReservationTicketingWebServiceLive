@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+
+         <!-- Database connection settings -->
+        <!-- <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/probasepay</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>-->
+        <property name="connection.provider_class">com.zaxxer.hikari.hibernate.HikariConnectionProvider</property>
+        <property name="hikari.minimumIdle">5</property>
+        <property name="hikari.maximumPoolSize">10</property>
+        <property name="hikari.idleTimeout">120000</property>
+        <!-- <property name="hikari.idleTimeout">30000</property> -->
+        <property name="hikari.dataSourceClassName">com.microsoft.sqlserver.jdbc.SQLServerDataSource</property>
+        <property name="hikari.dataSource.url">jdbc:sqlserver://localhost:1433;databaseName=zambia_railway;</property>
+        <!-- <property name="hikari.dataSource.url">jdbc:sqlserver://localhost:1433;databaseName=nrfa_live;integratedSecurity=true;</property> -->
+        <property name="hikari.dataSource.user">nrfa_root</property>
+        <property name="hikari.dataSource.password">k0l0zaq1ZAQ!</property>
+        <!--<property name="hikari.dataSource.cachePrepStmts">true</property>
+        <property name="hikari.dataSource.prepStmtCacheSize">250</property>
+        <property name="hikari.dataSource.prepStmtCacheSqlLimit">2048</property>
+        <property name="hikari.dataSource.rewriteBatchedStatements">true</property>-->
+
+        <!-- JDBC connection pool (use the built-in)
+        <property name="connection.pool_size">1</property>-->
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+
+        <property name="current_session_context_class">thread</property>
+
+
+        <!-- 
+        
+        <property name="connection.provider_class">com.zaxxer.hikari.hibernate.HikariConnectionProvider</property>
+        <property name="hikari.minimumIdle">5</property>
+        <property name="hikari.maximumPoolSize">10</property>
+        <property name="hikari.idleTimeout">120000</property>
+        <property name="hikari.dataSourceClassName">com.mysql.jdbc.jdbc2.optional.MysqlDataSource</property>
+        <property name="hikari.dataSource.url">jdbc:mysql://localhost/nrfa_live_mysql</property>
+        <property name="hikari.dataSource.user">root</property>
+        <property name="hikari.dataSource.password"></property>
+        <property name="hikari.dataSource.cachePrepStmts">true</property>
+        <property name="hikari.dataSource.prepStmtCacheSize">250</property>
+        <property name="hikari.dataSource.prepStmtCacheSqlLimit">2048</property>
+        <property name="hikari.dataSource.rewriteBatchedStatements">true</property>
+
+
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <property name="current_session_context_class">thread</property>
+         -->
+                
+
+		<!-- <property name="c3p0.acquire_increment">3</property> 
+		<property name="c3p0.idle_test_period">300</property> 
+		<property name="c3p0.max_size">100</property>
+		<property name="c3p0.max_statements">0</property> 
+		<property name="c3p0.min_size">10</property>
+		<property name="c3p0.timeout">5000</property>-->
+		<!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+		
+		<mapping class="com.probase.reservationticketingwebservice.models.AuditTrail"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.CardScheme"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Client"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ClientSubscription"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Country"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Customer"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Device"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.District"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Province"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.PublicHoliday"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.PurchasedTrip"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.PurchasedTripSeat"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ScheduleDay"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ScheduleStation"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.SMSMesage"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Station"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.TicketCollectionPoint"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Transaction"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.TripCard"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.User"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Vehicle"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleSchedule"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleScheduleFare"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleSeatSection"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleSeat"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleSeatClass"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Line"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleTrip"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.TripZone"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.TripZoneStation"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleTripPrice"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleTripRouting"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleSeatAvailability"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VehicleTripRouteSeatSection"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ScheduleStationCode"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ScheduleStationSeatSection"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ScheduleStationSeatAvailability"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Vendor"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Wallet"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.VendorShipment"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Shipment"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ProductPriceCoefficientRate"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ProductCategory"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.CourierTrackHistory"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.CourierService"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.CourierDeliveryPrice"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.City"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.CourierCabinShipment"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.ScheduleStationCourierSection"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.GroupTripRequest"></mapping>
+		<mapping class="com.probase.reservationticketingwebservice.models.Coupon"></mapping>
+        
+        <event type="pre-update">
+			<listener class="com.probase.reservationticketingwebservice.event.HibernateEventListener"/>
+		</event>
+		<event type="pre-insert">
+			<listener class="com.probase.reservationticketingwebservice.event.HibernateEventListener"/>
+		</event>
+
+    </session-factory>
+
+</hibernate-configuration>
